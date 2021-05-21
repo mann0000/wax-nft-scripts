@@ -17,9 +17,9 @@ The scripts can run manually on your average computer. Download them, install de
 If you plan to run them automatically, Heroku has a free tier and a [great guide](https://devcenter.heroku.com/articles/getting-started-with-nodejs). Please follow usual secure coding best practices - especially not hardcoding your credentials - before any upload.
 
 # Content
-* aetherAirdrop.js: a script airdropping Wax tokens to specific NFT holders (here, aether from Rplanet)
 * aetherClaim.js: automated aether claimer for Rplanet game
 * nftDrop.js: airdrop NFT to lucky miners on Alien Worlds land
+* tokenDrop.js: a script airdropping Wax tokens to specific NFT holders (here, aether from Rplanet)
 * utils.js: some functions needed to run the scripts
 
 # Want to help?
