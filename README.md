@@ -18,6 +18,7 @@ If you plan to run them automatically, Heroku has a free tier and a [great guide
 
 # Content
 * aetherClaim.js: automated aether claimer for Rplanet game
+* mineralClaim.js: automated mineral claimer for Rplanet game
 * nftDrop.js: airdrop NFT to lucky miners on Alien Worlds land
 * tokenDrop.js: a script airdropping Wax tokens to specific NFT holders (here, aether from Rplanet)
 * utils.js: some functions needed to run the scripts
