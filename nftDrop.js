@@ -19,7 +19,7 @@ const {
 } = require('util');
 const request = require("request");
 
-const privateKeys = ["XXXXX"]]; // <- put your key here
+const privateKeys = ["XXXXX"]; // <- put your key here
 const signatureProvider = new JsSignatureProvider(privateKeys);
 const rpc = new JsonRpc('https://wax.eosrio.io', {
 	fetch
