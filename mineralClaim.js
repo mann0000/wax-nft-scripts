@@ -30,8 +30,8 @@ const api = new Api({
 }); //required to submit transactions
 
 // URL to query to get all your lands. Replace owner with your own account
-const url1 = "https://www.waxplorer.com/api/search?name=&owner=nfttreasury2&author=rplanet&category=lands&order_by=date";
-const url2 = "https://www.waxplorer.com/api/search?name=&owner=nfttreasury2&author=rplanet&category=lands2&order_by=date";
+const url1 = "https://www.nfthive.io/api/search?name=&owner=nfttreasury2&author=rplanet&category=lands&order_by=date";
+const url2 = "https://www.nfthive.io/api/search?name=&owner=nfttreasury2&author=rplanet&category=lands2&order_by=date";
 
 var landsID = []; // Assets IDs of your lands will be stocked here
 
