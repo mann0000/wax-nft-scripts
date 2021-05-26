@@ -60,6 +60,9 @@ for (item in nftRef) { // Populate the loot pool by looping throught templates a
 	}
 };
 
+// Will contain the payload (i.e, actions you will make) send to the RPC relay
+var payload = [];
+
 request(
 	url,
 	function(error, response, body) {
@@ -77,35 +80,41 @@ request(
 				var lootPicked = lootPool[Math.floor(Math.random() * lootPool.length)]; // one item of the lootPool chosen randomly
 				console.log(lootPicked);
 
-				// The hard part: the NFT is minted directly to the miner's account
-				(async () => {
+				// The hard part: the NFT is minted directly to the miner's account. Here, we push all the NFT to mint in the payload
+				payload.push({
+					account: 'atomicassets',
+					name: 'mintasset',
+					authorization: [{
+						actor: "yourAccount", // this account must be added to your collection authorized account
+						permission: 'active',
+					}],
+					data: {
+						authorized_minter: "yourAccount", // replace accordingly
+						collection_name: "cryptomedals", //replace with your collection
+						schema_name: lootPicked[1], //schema specified on nftRef
+						template_id: lootPicked[0], // template specified on nftRef
+						new_asset_owner: miners[i].miner, // NFT recipient
+						immutable_data: [],
+						mutable_data: [],
+						tokens_to_back: []
+					}
+				});
 
-					await api.transact({
-						actions: [{
-							account: 'atomicassets',
-							name: 'mintasset',
-							authorization: [{
-								actor: "yourAccount", // this account must be added to your collection authorized account
-								permission: 'active',
-							}],
-							data: {
-								authorized_minter: "yourAccount", // replace accordingly
-								collection_name: "cryptomedals", //replace with your collection
-								schema_name: lootPicked[1], //schema specified on nftRef
-								template_id: lootPicked[0], // template specified on nftRef
-								new_asset_owner: miners[i].miner, // NFT recipient
-								immutable_data: [],
-								mutable_data: [],
-								tokens_to_back: []
-							}
-						}]
-					}, {
-						blocksBehind: 3,
-						expireSeconds: 120,
-					});
-				})();
+			};
+			
+		};
+		if (payload.length > 0) { // If a miner has won a NFT, we make the call here to mint it
+			console.log(payload);
+			// Make the call
+			(async () => {
 
+				await api.transact({
+					actions: payload
+				}, {
+					blocksBehind: 3,
+					expireSeconds: 120,
+				});
+			})();
+		};
 
-			}
-		}
 	});
