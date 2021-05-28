@@ -1,3 +1,5 @@
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8ac1bba49ae54505a5e3fd59160b2f90)](https://www.codacy.com/gh/mann0000/wax-nft-scripts/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mann0000/wax-nft-scripts&amp;utm_campaign=Badge_Grade)
+
 # wax-nft-scripts
 I made some utilitaries for basic interactions on Wax blockchain. I use them daily and you may like them!
 _ mann000 <t.me/mann0000>, tips appreciated (dsnqy.wam) 
